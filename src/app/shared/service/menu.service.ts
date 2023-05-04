@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { Item } from '../models/item'
+import { Item } from '../models/item';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class MenuService {
   ) { }
 
   createItem(item: Item): Observable<Object>{
-    const url = this.postUrl;
+    const url = this.apiBaseUrl;
     return this.http.post<Object>(url, item)
   }
 
@@ -29,7 +29,7 @@ export class MenuService {
 
   //get them all
   getItems(): Observable<Item[]> {
-    const url = this.apiBaseUrl + "Item";
+    const url = this.apiBaseUrl
     return this.http.get<Item[]>(url);
   }
 
