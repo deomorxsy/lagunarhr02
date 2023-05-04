@@ -74,32 +74,28 @@
 
 <form [formGroup]="profileForm" (ngSubmit)="onGet()">
   <label for="getVerb">Retorna o item: </label>
-  <input id="getVerb" type="text" formControlName="getVerb" required>
+  <input id="getVerb" type="text" formControlName="getVerb">
 
-  <button type="submit"
-  [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit">Submit</button>
 </form>
 
  <form [formGroup]="profileForm" (ngSubmit)="onGetAll()">
   <label for="getAllVerb"> Ver itens adicionados</label>
 
-  <button type="submit"
-  [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit">Submit</button>
  </form>
 
 <form [formGroup]="profileForm" (ngSubmit)="onPut()">
   <label for="putVerb">Atualize item: </label>
   <input id="putVerb" type="text" formControlName="putVerb" required>
 
-  <button type="submit"
-  [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit">Submit</button>
 </form>
 
 <form [formGroup]="profileForm" (ngSubmit)="onDel()">
   <label for="delVerb">Remova o item: </label>
   <input id="delVerb" type="text" formControlName="delVerb" required>
 
-  <button type="submit"
-  [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit">Submit</button>
 </form>
 
