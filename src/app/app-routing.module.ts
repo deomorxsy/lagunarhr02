@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: "/home",
+    path: "",
     component: AppComponent,
     pathMatch: "full"
   },
@@ -13,7 +13,7 @@ const routes: Routes = [
     redirectTo: "home"
   },
   {
-    path: "/crud/add",
+    path: "crud",
     component: AppComponent,
     redirectTo: "home"
   },

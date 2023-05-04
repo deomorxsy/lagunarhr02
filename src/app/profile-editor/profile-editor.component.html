@@ -27,7 +27,8 @@
   <label for="last-name">Last name: </label>
   <input id="last-name" type="text" formControlName="lastName"> -->
   <div formGroupName="menu">
-    <h2>Cardapio da semana</h2>
+    <h2>|> POST</h2>
+    <h3>Cardapio da semana</h3>
 
     <label for="name">Name: </label>
     <input id="name" type="text" formControlName="name">
@@ -43,7 +44,7 @@
   </div>
 
   <div formArrayName="aliases">
-    <h2>Cardapio do dia</h2>
+    <h3>Cardapio do dia</h3>
     <button type="button" (click)="addAlias()">+ Adicione um novo dia</button>
 
     <div *ngFor="let alias of aliases.controls; let i=index">
@@ -59,9 +60,46 @@
 <button type="submit"
 [disabled]="!profileForm.valid">Submit</button>
 
+
+
+
+
 </form>
 
 <p>Form status: {{ profileForm.status }}</p>
 <p>Form value: {{ profileForm.value | json }}</p>
 
 <!-- <button type="button" (click)="updateProfile()">Update profile</button> -->
+
+
+<form [formGroup]="profileForm" (ngSubmit)="onGet()">
+  <label for="getVerb">Retorna o item: </label>
+  <input id="getVerb" type="text" formControlName="getVerb" required>
+
+  <button type="submit"
+  [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+ <form [formGroup]="profileForm" (ngSubmit)="onGetAll()">
+  <label for="getAllVerb"> Ver itens adicionados</label>
+
+  <button type="submit"
+  [disabled]="!profileForm.valid">Submit</button>
+ </form>
+
+<form [formGroup]="profileForm" (ngSubmit)="onPut()">
+  <label for="putVerb">Atualize item: </label>
+  <input id="putVerb" type="text" formControlName="putVerb" required>
+
+  <button type="submit"
+  [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+<form [formGroup]="profileForm" (ngSubmit)="onDel()">
+  <label for="delVerb">Remova o item: </label>
+  <input id="delVerb" type="text" formControlName="delVerb" required>
+
+  <button type="submit"
+  [disabled]="!profileForm.valid">Submit</button>
+</form>
+

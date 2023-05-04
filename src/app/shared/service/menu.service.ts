@@ -12,7 +12,7 @@ export class MenuService {
   private apiBaseUrl = 'http:localhost:3000/api/menu/items/';
 
   constructor(
-    private http: HttpClient;
+    private http: HttpClient,
   ) { }
 
   createItem(item: Item): Observable<Object>{
@@ -22,9 +22,9 @@ export class MenuService {
 
 
 
-  getItem(id: string): Observable<Item> {
+  getItem(id: string) {
     const url =  this.apiBaseUrl + id;
-    return this.http.get<Item>(url)
+    return this.http.get(url)
   }
 
   //get them all
