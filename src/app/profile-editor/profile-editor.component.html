@@ -1,0 +1,67 @@
+<nav class="bg-primary fixed top-0 left-0 right-0 z-50">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <div class="flex items-center">
+        <a class="flex-shrink-0" href="#">
+          <svg class="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M14.828 14.828c-2.56 2.56-6.738 2.56-9.298 0-2.56-2.56-2.56-6.738 0-9.298 2.56-2.56 6.738-2.56 9.298 0 2.56 2.56 2.56 6.738 0 9.298zM9 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7z"></path>
+          </svg>
+          <span class="ml-2 text-white font-bold">DURC@ISI</span>
+        </a>
+        <div class="hidden md:flex items-center ml-4">
+          <a class="text-white hover:text-gray-500 ml-4" href="#">home</a>
+          <a class="text-white hover:text-gray-500 ml-4" href="#">menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<p>profile-editor works!</p>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <!-- <label for="first-name">First name: </label>
+  <input id="first-name" type="text" formControlName="firstName">
+
+  <label for="last-name">Last name: </label>
+  <input id="last-name" type="text" formControlName="lastName"> -->
+  <div formGroupName="menu">
+    <h2>Cardapio da semana</h2>
+
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="name">
+
+    <label for="price">Price: </label>
+    <input id="price" type="text" formControlName="price">
+
+    <label for="description">Description </label>
+    <input id="description" type="text" formControlName="description">
+
+    <label for="image">Image URI link </label>
+    <input id="image" type="text" formControlName="image">
+  </div>
+
+  <div formArrayName="aliases">
+    <h2>Cardapio do dia</h2>
+    <button type="button" (click)="addAlias()">+ Adicione um novo dia</button>
+
+    <div *ngFor="let alias of aliases.controls; let i=index">
+      <!-- The repeated alias template -->
+      <label for="alias-{{ i }}">Alias:</label>
+      <input id="alias-{{ i }}" type="text" [formControlName]="i">
+    </div>
+  </div>
+
+
+ <p>complete the form to submit</p>
+
+<button type="submit"
+[disabled]="!profileForm.valid">Submit</button>
+
+</form>
+
+<p>Form status: {{ profileForm.status }}</p>
+<p>Form value: {{ profileForm.value | json }}</p>
+
+<!-- <button type="button" (click)="updateProfile()">Update profile</button> -->
