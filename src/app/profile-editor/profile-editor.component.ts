@@ -57,7 +57,7 @@ export class ProfileEditorComponent {
     console.warn(`onGet method value: ${newGet}\nonGet method type: ${typeof newGet}`)
     const url = this.apiBaseUrl + 1
     console.warn(this.http.get(url))
-    return this.http.get<Item[]>(url)
+    return this.http.get(url)
     //this.apiService.getItem(newGet);
   }
   onGetAll(): void {
